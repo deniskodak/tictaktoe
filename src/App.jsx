@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import PlayersInfoContext from "./context";
 import PageSection from "./components/pageSection";
@@ -16,8 +16,15 @@ const initialInfoObj = {
 
 function App() {
   const [playersInfo, setPlayersInfo] = useState(initialInfoObj);
-  const [showName, setShowName] = useState(true);
+  const [showName, setShowName] = useState(false);
   const [showWinner, setShowWinner] = useState(false);
+  const appRef = useRef()
+
+  useEffect(() => {
+    if(!appRef?.current) return
+
+    setShowName(true)
+  }, [appRef?.current])
 
   function closeModal() {
     setShowName(false);
@@ -35,10 +42,10 @@ function App() {
   }, [playersInfo.winner]);
 
   return (
-    <div className="App" id="modalWrapper">
-      <PlayersInfoContext.Provider value={{ playersInfo, setPlayersInfo }}>
+    <div className="App" ref={appRef}>
+      <PlayersInfoContext.Provider value={{ playersInfo, setPlayersInfo, appRef }}>
         <PageSection>
-          <ModalContainer isShown={showName} onClose={closeModal}>
+          <ModalContainer isShown={showName} onClose={closeModal} modalRef={appRef}> 
             <NamesForm onClose={closeModal} />
           </ModalContainer>
 
