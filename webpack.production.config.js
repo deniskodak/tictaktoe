@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'tictactoe.js',
-        publicPath: 'http://localhost:9000/',
+        publicPath: 'https://deniskodak.github.io/tictaktoe/',
     },
     mode: 'production',
     module: {
