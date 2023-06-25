@@ -35,7 +35,7 @@ function App() {
   }, [playersInfo.winner]);
 
   return (
-    <div className="App">
+    <div className="App" id="modalWrapper">
       <PlayersInfoContext.Provider value={{ playersInfo, setPlayersInfo }}>
         <PageSection>
           <ModalContainer isShown={showName} onClose={closeModal}>

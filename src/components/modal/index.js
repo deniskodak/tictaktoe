@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import style from "./index.module.scss";
 
-Modal.setAppElement("#app");
+Modal.setAppElement("#modalWrapper");
 
 export default function ModalContainer({ isShown, onClose, children }) {
   return (
