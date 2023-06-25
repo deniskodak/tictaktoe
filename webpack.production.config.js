@@ -54,11 +54,15 @@ module.exports = {
                 './TicTacToe': './src/App.jsx',
             },
             shared: {
-                // adds react as shared module
+                ...dependencies,
                 react: {
                     requiredVersion: dependencies.react,
                     singleton: true,
                 },
+                "react-dom": {
+                    singleton: true,
+                    requiredVersion: dependencies["react-dom"],
+                  },
             },
         }),
     ],
