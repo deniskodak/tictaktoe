@@ -1,21 +1,24 @@
 import React from 'react'
-import Modal from 'react-modal'
 import style from './index.module.scss'
+import 'react-responsive-modal/styles.css'
+import { Modal } from 'react-responsive-modal'
+
 export default function ModalContainer({
     isShown,
     onClose,
     children,
     modalRef,
 }) {
-    if(!modalRef?.current) return 
+    if (!modalRef?.current) return
+
     return (
         <Modal
-            parentSelector={() => modalRef.current}
-            overlayClassName={style.overlay}
-            className={style.modal}
-            isOpen={isShown}
-            onRequestClose={onClose}
-            ariaHideApp={false}
+            open={isShown}
+            onClose={onClose}
+            container={modalRef.current}
+            center
+            container={modalRef.current}
+            classNames={{ overlay: style.overlay, root: style.root }}
         >
             {children}
         </Modal>
