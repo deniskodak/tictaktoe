@@ -45,7 +45,6 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/template.hbs',
-            minify: false,
         }),
         new ModuleFederationPlugin({
             name: 'TicTacToeApp',
