@@ -1,0 +1,149 @@
+@import '../../styles/variables.scss';
+
+.gameSection {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 690px;
+    min-width: 690px;
+
+    background-color: #45425f;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+
+        background-color: $game-winner-line;
+        border-radius: 5px;
+    }
+
+    &.winner-pos-0::after,
+    &.winner-pos-1::after,
+    &.winner-pos-2::after {
+        left: 4%;
+        right: 4%;
+        height: 4%;
+    }
+
+    &.winner-pos-0::after {
+        top: 14%;
+    }
+
+    &.winner-pos-1::after {
+        top: 48%
+    }
+
+    &.winner-pos-2::after {
+        bottom: 14%
+    }
+
+    &.winner-pos-3::after,
+    &.winner-pos-4::after,
+    &.winner-pos-5::after {
+        top: 4%;
+        bottom: 4%;
+        width: 2%;
+    }
+
+    &.winner-pos-3::after {
+        left: 16%;
+    }
+
+    &.winner-pos-4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.winner-pos-5::after {
+        right: 16%;
+    }
+
+    &.winner-pos-6::after,
+    &.winner-pos-7::after {
+        top: 47%;
+        right: -3%;
+        left: -3%;
+        height: 4%;
+    }
+
+    &.winner-pos-6::after {
+        transform: rotate(33deg);
+    }
+
+    &.winner-pos-7::after {
+        transform: rotate(-33deg);
+    }
+}
+
+.gameCeil {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-basis: calc(100% /3);
+
+    height: 150px;
+
+    color: $game-figure-cl;
+
+    transition: background 300ms linear;
+
+    &:after,
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+
+        border-radius: 5px;
+
+        background-color: #a556bf;
+    }
+
+    &:not(:nth-child(3n))::after {
+        top: -4%;
+        right: -1.5%;
+        width: 5px;
+        bottom: -4%;
+    }
+
+    &:not(:nth-child(-n+3))::before {
+        top: -1.5%;
+        right: -4%;
+        left: -4%;
+        height: 5px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.x,
+    &.o {
+        background-size: contain;
+        background-position: top 50% left 58%;
+        background-repeat: no-repeat;
+        transition: background-image 300ms linear;
+    }
+
+    &.x {
+        background-image: url('../../assets/x-symbol.png');
+    }
+
+    &.o {
+        background-image: url('../../assets/o-symbol.png');
+    }
+
+}
+
+.turnText {
+    position: absolute;
+    top: -7%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+}

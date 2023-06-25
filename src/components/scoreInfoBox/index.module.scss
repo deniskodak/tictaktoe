@@ -1,0 +1,17 @@
+.scoreBox {
+    margin-left: 50px;
+
+    text-align: start;
+}
+
+.text {
+    margin-bottom: 1.5rem;
+
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
