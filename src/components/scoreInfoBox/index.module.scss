@@ -1,17 +1,32 @@
-.scoreBox {
-    margin-left: 50px;
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
 
+.scoreBox {
     text-align: start;
+    margin-top: 1rem;
+
+    @include media($from: 'xl') {
+        margin-top: 0;
+        margin-left: 2.5rem;
+    }
 }
 
 .text {
     margin-bottom: 1.5rem;
 
-    font-size: 32px;
-    font-weight: 500;
-    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: $text-cl;
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @include media($until: 'sm') {
+        font-size: 1rem;
+    }
+
+    @include media($from: 'sm', $until: 'xl') {
+        font-size: 1.5rem;
     }
 }

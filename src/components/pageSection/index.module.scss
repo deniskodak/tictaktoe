@@ -1,8 +1,11 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
 .section {
-    padding: 30px;
+    padding: 1.5rem;
 
     height: 100vh;
-    background-color: #424f66;
+    background-color: $page-bg-cl;
 }
 
 .container {
@@ -10,4 +13,8 @@
 
     max-width: 1280px;
     margin: 0 auto;
+
+    @include media($until: 'xl') {
+        flex-direction: column;
+    }
 }

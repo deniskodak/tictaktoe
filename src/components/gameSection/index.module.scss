@@ -1,14 +1,15 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixin.scss';
 
 .gameSection {
     position: relative;
 
     display: flex;
     flex-wrap: wrap;
-    width: 690px;
-    min-width: 690px;
+    width: 100%;
+    max-width: $board-max-width;
 
-    background-color: #45425f;
+    background-color: $game-bg-cl;
 
     &:after {
         content: "";
@@ -92,6 +93,11 @@
 
     transition: background 300ms linear;
 
+    @include media($until: 'sm') {
+        max-height: 100px;
+        height: 20vw;
+    }
+
     &:after,
     &:before {
         content: "";
@@ -100,7 +106,7 @@
 
         border-radius: 5px;
 
-        background-color: #a556bf;
+        background-color: $game-design-lines-cl;
     }
 
     &:not(:nth-child(3n))::after {
@@ -141,9 +147,21 @@
 
 .turnText {
     position: absolute;
-    top: -7%;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
-    font-size: 24px;
+    color: $text-cl;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+    @include media($until: 'sm') {
+        font-size: 1rem;
+        top: -1rem;
+    }
+
+    @include media($from: 'sm') {
+        font-size: 1.5rem;
+        top: -1.5rem;
+    }
 }

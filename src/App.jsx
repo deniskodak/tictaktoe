@@ -8,6 +8,8 @@ import ModalContainer from './components/modal'
 import NamesForm from './components/namesForm'
 import WinnerText from './components/winnerText'
 
+import './index.scss'
+
 const initialInfoObj = {
     x: { name: 'Player 1', score: 0 },
     o: { name: 'Player 2', score: 0 },
